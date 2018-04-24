@@ -19,10 +19,10 @@
                      <children>
                         <LineChart fx:id="GraphLinechart" layoutX="150.0" layoutY="71.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                            <CategoryAxis fx:id="yaxisLineChart" side="BOTTOM" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis side="LEFT" fx:id="xaxisLineChart" />
                           </yAxis>
                         </LineChart>
                      </children>
@@ -35,10 +35,10 @@
                      <children>
                         <BarChart fx:id="GraphBarChart" layoutX="150.0" layoutY="84.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                            <CategoryAxis side="BOTTOM" fx:id="xaxisBarChart" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis fx:id="yaxisBarChart" side="LEFT" />
                           </yAxis>
                         </BarChart>
                      </children>

@@ -5,6 +5,7 @@
  */
 package ipcpractica6;
 
+import ipcpractica6.controller.FXMLDocumentController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,13 +20,13 @@ public class App extends Application {
     
     final int NBRACKETS  = 10;
     int hist[] = new int[NBRACKETS];
+    private Stage primaryStage;
     
     @Override
     public void start(Stage stage) throws Exception {
+        this.primaryStage = stage;
         Parent root = FXMLLoader.load(getClass().getResource("view/FXMLDocument.fxml"));
-        
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
         stage.show();
     }

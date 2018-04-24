@@ -32,10 +32,18 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private LineChart<String, Number> GraphLinechart;
     @FXML
-    private BarChart<?, ?> GraphBarChart;
+    private BarChart<String, Number> GraphBarChart;
     @FXML
     private PieChart GraphPieChart;
     private App app;
+    @FXML
+    private NumberAxis xaxisLineChart;
+    @FXML
+    private CategoryAxis yaxisLineChart;
+    @FXML
+    private NumberAxis yaxisBarChart;
+    @FXML
+    private CategoryAxis xaxisBarChart;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         app = new App();
@@ -48,17 +56,28 @@ public class FXMLDocumentController implements Initializable {
         //</editor-fold>
        
         //<editor-fold defaultstate="collapsed" desc="LineChart">
-        CategoryAxis xAxis = new CategoryAxis();
-        NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Nº Dato aleatorio");
-        GraphLinechart = new LineChart<>(xAxis,yAxis);
+        xaxisLineChart.setLabel("Nº Dato aleatorio");
         GraphLinechart.setTitle("Datos de caracter aleatorio");
         XYChart.Series series = new XYChart.Series();
-        series.setName("Mis datos");
+        series.setName("2017");
         this.getObsListData().forEach(d-> series.getData().add(new XYChart.Data(d.getName(),d.getPieValue())));
         GraphLinechart.getData().add(series);
         //</editor-fold>
+        //<editor-fold defaultstate="collapsed" desc="BarChart">
+        GraphBarChart.setTitle("Datos de caracter aleatorio");
+        xaxisBarChart.setLabel("Nº Dato aleatorio");
+        app.poblate();
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("2018");
+        this.getObsListData().forEach(d-> series1.getData().add(new XYChart.Data(d.getName(),d.getPieValue())));
+        GraphBarChart.getData().addAll(series,series1);
+        
+//</editor-fold>
 
+    }
+    
+    public LineChart getLineChart(){
+        return this.GraphLinechart;
     }
     
     public ObservableList<PieChart.Data> getObsListData(){
