@@ -68,9 +68,14 @@ public class FXMLDocumentController implements Initializable {
         xaxisBarChart.setLabel("Nº Dato aleatorio");
         app.poblate();
         XYChart.Series series1 = new XYChart.Series();
-        series1.setName("2018");
+        series1.setName("2017");
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("2018");
         this.getObsListData().forEach(d-> series1.getData().add(new XYChart.Data(d.getName(),d.getPieValue())));
-        GraphBarChart.getData().addAll(series,series1);
+        app.poblate();
+        this.getObsListData().forEach(d-> series2.getData().add(new XYChart.Data(d.getName(),d.getPieValue())));
+        //GraphBarChart.getData().addAll(series,series1);
+        GraphBarChart.getData().addAll(series1,series2);
         
 //</editor-fold>
 
